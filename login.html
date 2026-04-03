@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Investor Login</title>
+
+  <style>
+    :root{
+      --bg:#0a0a0a;
+      --text:#f5f5f5;
+      --border:rgba(255,255,255,0.2);
+      --muted:#a1a1aa;
+    }
+
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",Arial,sans-serif;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      height:100vh;
+    }
+
+    .login-box{
+      width:280px;
+      border:1px solid var(--border);
+      padding:24px;
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+
+    input{
+      background:transparent;
+      border:1px solid var(--border);
+      padding:10px;
+      color:var(--text);
+      font-size:12px;
+      outline:none;
+    }
+
+    input::placeholder{
+      color:rgba(255,255,255,0.5);
+      text-transform:uppercase;
+      letter-spacing:.08em;
+    }
+
+    button{
+      background:transparent;
+      border:1px solid var(--border);
+      padding:10px;
+      color:var(--text);
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      cursor:pointer;
+    }
+
+    button:hover{
+      background:rgba(255,255,255,0.08);
+    }
+
+    .error{
+      font-size:11px;
+      color:#ff4d4d;
+      text-align:center;
+      display:none;
+      margin-top:4px;
+    }
+  </style>
+</head>
+<body>
+
+  <form class="login-box" id="loginForm">
+    <input type="text" id="username" placeholder="Username" required>
+    <input type="password" id="codeword" placeholder="Codeword" required>
+    <button type="submit">Submit</button>
+    <div class="error" id="errorMsg">Access Denied</div>
+  </form>
+
+  <script>
+    const form = document.getElementById("loginForm");
+    const errorMsg = document.getElementById("errorMsg");
+
+    form.addEventListener("submit", function(e){
+      e.preventDefault();
+
+      const username = document.getElementById("username").value;
+      const codeword = document.getElementById("codeword").value;
+
+      // CHANGE THESE
+      const validUser = "investor";
+      const validPass = "damon";
+
+      if(username === validUser && codeword === validPass){
+        window.location.href = "investor.html"; // next page
+      } else {
+        errorMsg.style.display = "block";
+      }
+    });
+  </script>
+
+</body>
+</html>
