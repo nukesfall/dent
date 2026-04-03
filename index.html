@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Damon Enterprises</title>
+
+  <style>
+    :root{
+      --bg:#0a0a0a;
+      --text:#f5f5f5;
+      --muted:#a1a1aa;
+    }
+
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",Arial,sans-serif;
+      display:flex;
+      flex-direction:column;
+      min-height:100vh;
+    }
+
+    .topbar{
+      display:flex;
+      justify-content:center;
+      padding:24px 0;
+    }
+
+    .login-link{
+      color:var(--text);
+      text-decoration:none;
+      font-size:12px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      opacity:.85;
+      transition:opacity .2s ease;
+    }
+
+    .login-link:hover{
+      opacity:1;
+    }
+
+    .main{
+      flex:1;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .logo{
+      width:120px;
+    }
+
+    .footer{
+      text-align:center;
+      font-size:11px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:var(--muted);
+      padding:20px 0;
+    }
+
+    @media (max-width: 600px){
+      .logo{
+        width:90px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <a href="login.html" class="login-link">Investor Login</a>
+  </div>
+
+  <div class="main">
+    <img src="logo.png" class="logo" alt="Damon Enterprises logo">
+  </div>
+
+  <div class="footer">
+    © Damon Enterprises 2026
+  </div>
+
+</body>
+</html>
