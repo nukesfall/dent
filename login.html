@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <!-- PREVENT ZOOM -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+
   <title>Investor Login</title>
 
   <style>
@@ -18,10 +21,6 @@
     *{
       box-sizing:border-box;
       -webkit-tap-highlight-color: transparent;
-    }
-
-    html, body{
-      min-height:100%;
     }
 
     body{
@@ -49,7 +48,6 @@
       font-size:12px;
       letter-spacing:.18em;
       text-transform:uppercase;
-      font-weight:400;
     }
 
     .label{
@@ -61,13 +59,14 @@
       color:var(--muted);
     }
 
+    /* 🔥 FIX: 16px stops mobile zoom */
     input{
       width:100%;
       background:transparent;
       border:1px solid var(--border);
       color:var(--text);
       padding:10px 12px;
-      font-size:12px;
+      font-size:16px; /* ← key fix */
       outline:none;
       border-radius:0;
       appearance:none;
@@ -84,26 +83,18 @@
       border:1px solid var(--border);
       color:var(--text);
       padding:10px 12px;
-      font-size:11px;
+      font-size:12px;
       letter-spacing:.14em;
       text-transform:uppercase;
       cursor:pointer;
-      border-radius:0;
-      appearance:none;
-    }
-
-    button:hover{
-      border-color:var(--border-strong);
     }
 
     .helper{
       margin-top:12px;
       text-align:center;
       font-size:11px;
-      line-height:1.6;
       color:var(--muted);
       text-transform:uppercase;
-      letter-spacing:.08em;
     }
 
     .error{
@@ -113,7 +104,6 @@
       font-size:11px;
       color:var(--danger);
       text-transform:uppercase;
-      letter-spacing:.08em;
     }
   </style>
 </head>
@@ -122,41 +112,25 @@
   <div class="shell">
     <h1 class="title">Investor Login</h1>
 
-    <label class="label" for="inviteCode">Invite Code</label>
-    <input id="inviteCode" type="password" autocomplete="off" required>
+    <label class="label">Invite Code</label>
+    <input id="inviteCode" type="password">
 
-    <button id="loginBtn" type="button">Submit</button>
+    <button onclick="login()">Submit</button>
 
     <div class="helper">Invite only access</div>
-    <div id="loginError" class="error">Invalid code</div>
+    <div id="error" class="error">Invalid code</div>
   </div>
 
   <script>
-    const VALID_CODE = "ETDA$";
+    function login(){
+      const code = document.getElementById("inviteCode").value.trim();
 
-    const inviteCode = document.getElementById("inviteCode");
-    const loginBtn = document.getElementById("loginBtn");
-    const loginError = document.getElementById("loginError");
-
-    function tryLogin(){
-      loginError.style.display = "none";
-
-      const enteredCode = inviteCode.value.trim();
-
-      if(enteredCode === VALID_CODE){
+      if(code === "ETDA$"){
         window.location.href = "ethan.html";
       } else {
-        loginError.style.display = "block";
+        document.getElementById("error").style.display = "block";
       }
     }
-
-    loginBtn.addEventListener("click", tryLogin);
-
-    inviteCode.addEventListener("keydown", function(e){
-      if(e.key === "Enter"){
-        tryLogin();
-      }
-    });
   </script>
 
 </body>
