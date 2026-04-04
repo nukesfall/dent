@@ -18,7 +18,7 @@
     }
 
     html, body{
-      height:100%;
+      min-height:100%;
     }
 
     body{
@@ -29,10 +29,10 @@
       display:flex;
       flex-direction:column;
       min-height:100vh;
-      overflow:hidden;
+      overflow-x:hidden;
+      overflow-y:auto;
     }
 
-    /* Top login */
     .topbar{
       display:flex;
       justify-content:center;
@@ -54,7 +54,6 @@
       opacity:1;
     }
 
-    /* Center content */
     .main{
       flex:1 1 auto;
       display:flex;
@@ -63,13 +62,11 @@
       padding:24px;
     }
 
-    /* LOGO — big + responsive */
     .logo{
       width:clamp(320px, 65vw, 1000px);
       height:auto;
       object-fit:contain;
       display:block;
-
       pointer-events:none;
       -webkit-user-select:none;
       -moz-user-select:none;
@@ -77,25 +74,24 @@
       -webkit-user-drag:none;
     }
 
-    /* Footer */
     .footer{
       text-align:center;
       font-size:11px;
       letter-spacing:.14em;
       text-transform:uppercase;
       color:var(--muted);
-      padding:20px 0;
+      padding:20px 0 26px;
       flex:0 0 auto;
     }
 
-    /* MOBILE — make logo dominate */
     @media (max-width: 700px){
       .topbar{
-        padding:20px 0;
+        padding:20px 0 12px;
       }
 
       .main{
-        padding:16px;
+        padding:8px 16px 10px;
+        align-items:center;
       }
 
       .logo{
@@ -106,7 +102,7 @@
       .footer{
         font-size:10px;
         letter-spacing:.12em;
-        padding:16px 0;
+        padding:10px 0 22px;
       }
     }
   </style>
