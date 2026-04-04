@@ -3,7 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Damon Enterprises</title>
+
+  <!-- FAVICON -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="shortcut icon" href="favicon.ico">
 
   <style>
     :root{
@@ -33,6 +38,7 @@
       overflow-y:auto;
     }
 
+    /* Top login */
     .topbar{
       display:flex;
       justify-content:center;
@@ -54,6 +60,7 @@
       opacity:1;
     }
 
+    /* Center content */
     .main{
       flex:1 1 auto;
       display:flex;
@@ -62,11 +69,13 @@
       padding:24px;
     }
 
+    /* LOGO */
     .logo{
-      width:clamp(320px, 65vw, 1000px);
+      width:clamp(220px, 45vw, 700px);
       height:auto;
       object-fit:contain;
       display:block;
+
       pointer-events:none;
       -webkit-user-select:none;
       -moz-user-select:none;
@@ -74,6 +83,7 @@
       -webkit-user-drag:none;
     }
 
+    /* Footer */
     .footer{
       text-align:center;
       font-size:11px;
@@ -84,6 +94,7 @@
       flex:0 0 auto;
     }
 
+    /* MOBILE */
     @media (max-width: 700px){
       .topbar{
         padding:20px 0 12px;
@@ -91,12 +102,11 @@
 
       .main{
         padding:8px 16px 10px;
-        align-items:center;
       }
 
       .logo{
-        width:92vw;
-        max-width:92vw;
+        width:64vw;
+        max-width:64vw;
       }
 
       .footer{
